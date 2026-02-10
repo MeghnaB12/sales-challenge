@@ -1,4 +1,56 @@
 
+# SkyGeni Sales Insight Engine 
+
+## Overview
+This project is a lightweight **Sales Insight & Alert System** designed to predict the probability of winning a sales deal based on historical data. It processes raw CRM data, trains a Decision Tree classifier, and extracts the key drivers (features) that influence a "Won" or "Lost" outcome.
+
+## 📂 Project Structure
+* `src/decision_engine.py`: The core logic class (`WinRateDriverEngine`) that handles data cleaning, preprocessing, and model training.
+* `notebooks/analysis.ipynb`: The Jupyter Notebook used for exploratory data analysis (EDA) and running the driver code.
+* `data/skygeni_sales_data.csv`: The dataset used for training and testing.
+* `images/`: Generated visualization exports (Win Rate, Segmentation, Loss Analysis).
+* `requirements.txt`: List of Python dependencies.
+
+## ⚙️ Setup & Installation
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/yourusername/skygeni-sales-engine.git](https://github.com/yourusername/skygeni-sales-engine.git)
+    cd skygeni-sales-engine
+    ```
+2.  **Create and activate a virtual environment (optional but recommended):**
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+    ```
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## 🚀 How to Run
+This project is designed to be run via Jupyter Notebook.
+
+1.  **Launch Jupyter:**
+    ```bash
+    jupyter notebook
+    ```
+2.  **Open the notebook:**
+    Navigate to the `notebooks/` folder and open `analysis.ipynb`.
+3.  **Run all cells:**
+    The notebook imports the engine from `src/`, loads data from `data/`, and generates insights.
+
+## 🧠 Approach & Architecture
+The solution follows a standard ML pipeline:
+1.  **Data Cleaning:**
+    * Standardized `outcome` to binary (1=Won, 0=Lost).
+    * Imputed missing numeric values with medians and categorical values with "Unknown".
+2.  **Feature Engineering:**
+    * Calculated `sales_cycle_days` if missing.
+    * Encoded categorical variables (`Industry`, `Region`) using One-Hot Encoding.
+3.  **Modeling:**
+    * Used a **Decision Tree Classifier** (`max_depth=3`) for maximum interpretability.
+    
+
 # Part 1: Problem Framing & Business Logic
 
 1. What is the real business problem? 
@@ -174,42 +226,3 @@ Explainability Layer: Implement SHAP values. Instead of just saying "Win Probabi
 Imputation Strategy: My current method of filling missing numerical values with the median and categorical values with "Unknown" is a blunt instrument. If data is missing not at random (e.g., reps only skip entering Deal Amount on low-priority deals), this introduces significant bias.
 
 
-<!-- # SkyGeni Sales Intelligence Challenge
-
-## 🚀 Executive Summary
-The goal of this project was to diagnose why Win Rates are dropping despite healthy pipeline volume.
-**Key Finding:** The organization is suffering from **"Late-Stage Leakage"**. While volume is high, a significant portion of deals are failing at the **Negotiation** stage, indicating wasted sales effort on unqualified deals or pricing friction.
-
-## 🛠️ The Solution
-I built a Sales Intelligence System that:
-1.  **Diagnoses Trends:** Visualizes stage-by-stage conversion leakage.
-2.  **Predicts Outcomes:** A Decision Tree model identifies key drivers of won deals (Accuracy: ~75%).
-3.  **Actionable Metrics:** Introduced "Stalled Deal Risk" to identify zombie pipeline.
-
-
-
-## ⚙️ How to Run
-1.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-2.  Run the Analysis Notebook:
-    * Open `notebooks/analysis.ipynb`
-3.  Run the Decision Engine:
-    ```python
-    from src.decision_engine import WinRateDriverEngine
-    # See notebook for usage
-    ```
-
-## 🏗️ System Architecture (Production Plan)
-If productized, this system would run as a nightly batch job:
-* **ETL:** Extract from Salesforce -> Load to Snowflake.
-* **Model:** Retrains weekly on closed deals.
-* **Alerts:** Slack notification sent to Manager if a deal >$10k stalls for 14+ days.
-
-## 🧠 Reflection & Limitations
-* **Data Quality:** The model assumes `deal_stage` is accurate. In reality, reps often bulk-update stages, which distorts "velocity" metrics.
-* **Missing Context:** We lack "Activity Data" (emails/calls). Adding NLP analysis on sales emails would significantly improve the risk score.
-* **Next Steps:** I would implement a "Deal Health Score" (0-100) visible in the CRM to guide reps on which deals to prioritize.
-
- -->
