@@ -81,55 +81,55 @@ The solution follows a standard ML pipeline:
 
 1. The "Volume Trap" (Volume vs. Win Rate)
 
-    Observation: While our deal volume (blue bars) has remained strong or increased, the overall Win Rate (red line) has dropped significantly from ~50% to ~35% over the last 6 months.
+    * Observation: While our deal volume (blue bars) has remained strong or increased, the overall Win Rate (red line) has dropped significantly from ~50% to ~35% over the last 6 months.
 
-    Why does it matter? 
-    This confirms the "Pipeline Bloat" hypothesis. The sales team is adding more deals to the top of the funnel to maintain the appearance of growth, but these deals are lower quality and are not converting. We are confusing activity with productivity.
+    * Why does it matter? 
+      This confirms the "Pipeline Bloat" hypothesis. The sales team is adding more deals to the top of the funnel to maintain the appearance of growth, but these deals are lower quality and are not converting. We are confusing activity with productivity.
 
-    Action to take: Implement stricter Pipeline Entry Criteria. A deal should not move past "Prospecting" unless a budget holder is identified. This will lower volume but increase win rates and forecast accuracy.
+    * Action to take: Implement stricter Pipeline Entry Criteria. A deal should not move past "Prospecting" unless a budget holder is identified. This will lower volume but increase win rates and forecast accuracy.
 
 2. The "Negotiation" Bottleneck (Loss by Stage)
 
-    Observation: We are losing nearly as many deals at the "Negotiation" stage (~550 deals) as we are at the early "Demo" stage.
+    * Observation: We are losing nearly as many deals at the "Negotiation" stage (~550 deals) as we are at the early "Demo" stage.
 
-    Why does it matter? 
-    Losing at the "Demo" stage is healthy (fast failure). Losing at "Negotiation" is expensive. It means our reps spent 3-4 months working a deal, flew to meetings, and did demos, only to lose at the finish line. This indicates a failure in Closing          Capabilities or Pricing Strategy, not just lead quality.
+    * Why does it matter? 
+      Losing at the "Demo" stage is healthy (fast failure). Losing at "Negotiation" is expensive. It means our reps spent 3-4 months working a deal, flew to meetings, and did demos, only to lose at the finish line. This indicates a failure in Closing            Capabilities or Pricing Strategy, not just lead quality.
 
-Action to take: Launch a "Deal Desk" review for all deals entering Negotiation. A senior leader must sign off on the closing strategy before the final contract is sent to prevent late-stage fumbles.
+    * Action to take: Launch a "Deal Desk" review for all deals entering Negotiation. A senior leader must sign off on the closing strategy before the final contract is sent to prevent late-stage fumbles.
 
 3. Systemic Stagnation (Regional Heatmap)
 
-Observation: The heatmap shows a "sea of orange." Win rates are consistently low (41%–47%) across almost all regions and industries. There is no single "bad apple" region dragging us down.
+    * Observation: The heatmap shows a "sea of orange." Win rates are consistently low (41%–47%) across almost all regions and industries. There is no single "bad apple" region dragging us down.
 
-Why does it matter? 
-Since the issue is global, not local, it points to a Product-Market Fit or Macro-Pricing issue. If only EMEA were red, we would blame the EMEA team. Since everyone is red, the problem is likely the product or the price list itself.
+    * Why does it matter? 
+      Since the issue is global, not local, it points to a Product-Market Fit or Macro-Pricing issue. If only EMEA were red, we would blame the EMEA team. Since everyone is red, the problem is likely the product or the price list itself.
 
-Action to take: Conduct a Win/Loss Analysis survey. Interview the last 50 lost prospects globally to see if "Price" was the primary objection. If so, re-evaluate our packaging strategy.
+    * Action to take: Conduct a Win/Loss Analysis survey. Interview the last 50 lost prospects globally to see if "Price" was the primary objection. If so, re-evaluate our packaging strategy.
 
 
 ## 📐 Custom Metrics Analysis
 
 4. The "Sluggish Pipeline" (Efficiency Paradox)
 
-Metric Definition: Percentage of open deals that have taken >1.3× the median sales cycle to close.
+    * Metric Definition: Percentage of open deals that have taken >1.3× the median sales cycle to close.
 
-Result: 34.0% of our active pipeline is "Sluggish."
+    * Result: 34.0% of our active pipeline is "Sluggish."
 
-Why does it matter? 
-Normally, slow deals are "bad" deals. However, our data shows a paradox: Sluggish deals have a 44% Win Rate (nearly identical to the 46% average). These aren't "dead" deals; they are just resource-heavy. They eventually close, but they clog up rep capacity and make monthly forecasting impossible because they drift across quarters.
+    * Why does it matter? 
+      Normally, slow deals are "bad" deals. However, our data shows a paradox: Sluggish deals have a 44% Win Rate (nearly identical to the 46% average). These aren't "dead" deals; they are just resource-heavy. They eventually close, but they clog up rep         capacity and make monthly forecasting impossible because they drift across quarters.
 
-Action to take: Do not auto-close, as that would destroy viable revenue. Instead, implement a "Stall-Breaker" Campaign. Trigger at 60 days of stagnation and send an automated "Executive Sponsor" email to the prospect to force a decision (up or out). We need to force these deals to close faster, not kill them.
+    * Action to take: Do not auto-close, as that would destroy viable revenue. Instead, implement a "Stall-Breaker" Campaign. Trigger at 60 days of stagnation and send an automated "Executive Sponsor" email to the prospect to force a decision (up or out).       We need to force these deals to close faster, not kill them.
 
 5. Pipeline Velocity (Revenue Efficiency)
 
-Metric Definition: (WinRate×DealSize)/SalesCycleDays.
+    * Metric Definition: (WinRate×DealSize)/SalesCycleDays.
 
-Result: The India region has the highest velocity (~$189/day), outperforming North America ($182/day).
+    * Result: The India region has the highest velocity (~$189/day), outperforming North America ($182/day).
 
-Why does it matter? 
-Contrary to expectation, India isn't closing faster; they are closing better. India has the highest Win Rate (45.7%) and highest Deal Size of any region. North America is churning through deals slightly faster, but losing more of them and at lower values.
+    * Why does it matter? 
+      Contrary to expectation, India isn't closing faster; they are closing better. India has the highest Win Rate (45.7%) and highest Deal Size of any region. North America is churning through deals slightly faster, but losing more of them and at lower         values.
 
-Action to take: Replicate the India Playbook. Analyze the sales scripts and objection-handling techniques used by the India team, as they are managing to close larger deals with a higher success rate than their US counterparts.
+    * Action to take: Replicate the India Playbook. Analyze the sales scripts and objection-handling techniques used by the India team, as they are managing to close larger deals with a higher success rate than their US counterparts.
 
 
 # Part 3 – Build a Decision Engine
@@ -144,11 +144,11 @@ Features Used: Deal Amount, Sales Cycle Days, Region, Industry, Lead Source, Pro
 
 3. *How a Sales Leader Would Use This*
 
-Strategic Planning: Since Deal Amount is the #1 driver, the leader should restructure territories. "Whale Deals" (High Amount) should only be assigned to Senior Reps, while Juniors focus on smaller, high-velocity deals.
+    * Strategic Planning: Since Deal Amount is the #1 driver, the leader should restructure territories. "Whale Deals" (High Amount) should only be assigned to Senior Reps, while Juniors focus on smaller, high-velocity deals.
 
-Intervention Alerts: The model shows Time is the #2 killer. Managers can set up an automated Slack alert: "Warning: Deal X has exceeded 60 days. Win probability has dropped by 40%. Intervene now."
+    * Intervention Alerts: The model shows Time is the #2 killer. Managers can set up an automated Slack alert: "Warning: Deal X has exceeded 60 days. Win probability has dropped by 40%. Intervene now."
 
-Focus Shift: The leader can stop blaming the "North America Team" (0% impact) and instead focus on fixing the global pricing strategy, as the issue is deal-based, not location-based.
+    * Focus Shift: The leader can stop blaming the "North America Team" (0% impact) and instead focus on fixing the global pricing strategy, as the issue is deal-based, not location-based.
 
 # Part 4 – Mini System Design
 
