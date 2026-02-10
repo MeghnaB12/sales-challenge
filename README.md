@@ -14,7 +14,7 @@ This project is a lightweight **Sales Insight & Alert System** designed to predi
 ## ⚙️ Setup & Installation
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yourusername/skygeni-sales-engine.git](https://github.com/yourusername/skygeni-sales-engine.git)
+    git clone https://github.com/MeghnaB12/skygeni-sales-engine.git
     cd skygeni-sales-engine
     ```
 2.  **Create and activate a virtual environment (optional but recommended):**
@@ -55,7 +55,7 @@ The solution follows a standard ML pipeline:
 
 1. What is the real business problem? 
 
-The CRO is facing a classic "Pipeline Quantity vs. Quality" paradox. High volume with dropping win rates usually means the pipeline is bloated with low-intent leads or there is a late-stage execution failure. The core issue isn't just that deals are being lost; it's that the sales team can no longer distinguish between real revenue opportunities and noise, causing them to waste time on deals that were never going to close.
+    The CRO is facing a classic "Pipeline Quantity vs. Quality" paradox. High volume with dropping win rates usually means the pipeline is bloated with low-intent leads or there is a late-stage execution failure. The core issue isn't just that deals are       being lost; it's that the sales team can no longer distinguish between real revenue opportunities and noise, causing them to waste time on deals that were never going to close.
 
 
 2. What key questions should the AI answer? 
@@ -67,7 +67,7 @@ The CRO is facing a classic "Pipeline Quantity vs. Quality" paradox. High volume
 
 3. What metrics matter most for diagnosis? 
 
-Standard Win Rate is a lagging indicator; by the time you see it drop, the revenue is already gone. I would focus on:
+  Standard Win Rate is a lagging indicator; by the time you see it drop, the revenue is already gone. I would focus on:
 
 * Stage-by-Stage Conversion: To pinpoint exactly where the drop-off cliff is.
 * Pipeline Velocity: (WinRate×DealSize)/SalesCycle. This tells us if deals are slowing down before they die.
@@ -75,25 +75,25 @@ Standard Win Rate is a lagging indicator; by the time you see it drop, the reven
 
 4. What assumptions are you making? 
 
-I am assuming Data Integrity—that reps are actually updating closed_date and outcome accurately. If reps leave lost deals as "Open" to hide bad numbers, our velocity metrics will be skewed. I also assume a Stable Lead Definition; if Marketing recently lowered the criteria for an "SQL" to hit their own volume targets, that would artificially inflate volume while tanking the win rate naturally.
+    I am assuming Data Integrity—that reps are actually updating closed_date and outcome accurately. If reps leave lost deals as "Open" to hide bad numbers, our velocity metrics will be skewed. I also assume a Stable Lead Definition; if Marketing recently     lowered the criteria for an "SQL" to hit their own volume targets, that would artificially inflate volume while tanking the win rate naturally.
 
 # Part 2 – Data Exploration & Insights
 
 1. The "Volume Trap" (Volume vs. Win Rate)
 
-Observation: While our deal volume (blue bars) has remained strong or increased, the overall Win Rate (red line) has dropped significantly from ~50% to ~35% over the last 6 months.
+    Observation: While our deal volume (blue bars) has remained strong or increased, the overall Win Rate (red line) has dropped significantly from ~50% to ~35% over the last 6 months.
 
-Why does it matter? 
-This confirms the "Pipeline Bloat" hypothesis. The sales team is adding more deals to the top of the funnel to maintain the appearance of growth, but these deals are lower quality and are not converting. We are confusing activity with productivity.
+    Why does it matter? 
+    This confirms the "Pipeline Bloat" hypothesis. The sales team is adding more deals to the top of the funnel to maintain the appearance of growth, but these deals are lower quality and are not converting. We are confusing activity with productivity.
 
-Action to take: Implement stricter Pipeline Entry Criteria. A deal should not move past "Prospecting" unless a budget holder is identified. This will lower volume but increase win rates and forecast accuracy.
+    Action to take: Implement stricter Pipeline Entry Criteria. A deal should not move past "Prospecting" unless a budget holder is identified. This will lower volume but increase win rates and forecast accuracy.
 
 2. The "Negotiation" Bottleneck (Loss by Stage)
 
-Observation: We are losing nearly as many deals at the "Negotiation" stage (~550 deals) as we are at the early "Demo" stage.
+    Observation: We are losing nearly as many deals at the "Negotiation" stage (~550 deals) as we are at the early "Demo" stage.
 
-Why does it matter? 
-Losing at the "Demo" stage is healthy (fast failure). Losing at "Negotiation" is expensive. It means our reps spent 3-4 months working a deal, flew to meetings, and did demos, only to lose at the finish line. This indicates a failure in Closing Capabilities or Pricing Strategy, not just lead quality.
+    Why does it matter? 
+    Losing at the "Demo" stage is healthy (fast failure). Losing at "Negotiation" is expensive. It means our reps spent 3-4 months working a deal, flew to meetings, and did demos, only to lose at the finish line. This indicates a failure in Closing          Capabilities or Pricing Strategy, not just lead quality.
 
 Action to take: Launch a "Deal Desk" review for all deals entering Negotiation. A senior leader must sign off on the closing strategy before the final contract is sent to prevent late-stage fumbles.
 
