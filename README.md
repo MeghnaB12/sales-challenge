@@ -113,7 +113,7 @@ The solution follows a standard ML pipeline:
 **Observation:** The heatmap shows a "sea of orange." Win rates are consistently low (41%–47%) across almost all regions and industries. There is no single "bad apple" region dragging us down.
 
 <br>
-<img src="images/insight3_segmentation.png" alt="Regional Heatmap" width="600"/>
+<img src="images/insight3_segmentation_heatmap.png" alt="Regional Heatmap" width="600"/>
 <br>
 
 * **Why does it matter?**
@@ -167,15 +167,14 @@ Features Used: Deal Amount, Sales Cycle Days, Region, Industry, Lead Source, Pro
 
 # Part 4 – Mini System Design
 
-A lightweight, automated engine that monitors deal health and delivers actionable win/loss insights to sales reps.
+### 1. High-Level Architecture
 
-1. High-Level Architecture
+A simple **Extract-Analyze-Act** loop.
 
-    A simple Extract-Analyze-Act loop.
+* **Connector:** Fetches deal data from CRM (Salesforce/HubSpot) via API.
+* **Brain (The Engine):** Runs our `WinRateDriverEngine` to calculate Win Probability & Key Drivers.
+* **Notifier:** Pushes alerts to Slack/Email or updates fields back in the CRM.
    
-        * Connector: Fetches deal data from CRM (Salesforce/HubSpot) via API.
-        * Brain (The Engine): Runs our WinRateDriverEngine to calculate Win Probability & Key Drivers.
-        * Notifier: Pushes alerts to Slack/Email or updates fields back in the CRM.
 ```mermaid
 graph LR
     A["CRM Data (Salesforce/HubSpot)"] -->|1. Fetch Deals| B("Python ETL Script")
