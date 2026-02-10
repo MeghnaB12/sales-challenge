@@ -2,11 +2,4 @@
 __pycache__/
 .ipynb_checkpoints/
 *.DS_Store
-# Optional: Ignore data if it's sensitive, but for this assignment, 
-# you might want to include it or generate it in code.
-# data/__pycache__/
 .DS_Store
-.ipynb_checkpoints/
-__pycache__/
-.DS_Store
-.ipynb_checkpoints/
