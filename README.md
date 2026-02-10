@@ -158,17 +158,19 @@ A lightweight, automated engine that monitors deal health and delivers actionabl
 
 1. High-Level Architecture
 
-A simple Extract-Analyze-Act loop.
-* Connector: Fetches deal data from CRM (Salesforce/HubSpot) via API.
-* Brain (The Engine): Runs our WinRateDriverEngine to calculate Win Probability & Key Drivers.
-* Notifier: Pushes alerts to Slack/Email or updates fields back in the CRM.
-
+    A simple Extract-Analyze-Act loop.
+   
+        * Connector: Fetches deal data from CRM (Salesforce/HubSpot) via API.
+        * Brain (The Engine): Runs our WinRateDriverEngine to calculate Win Probability & Key Drivers.
+        * Notifier: Pushes alerts to Slack/Email or updates fields back in the CRM.
+```mermaid
 graph LR
-    A[CRM Data\n(Salesforce/HubSpot)] -->|1. Fetch Deals| B(Python ETL Script)
-    B -->|2. Preprocess| C{WinRate Engine\n(Decision Tree)}
-    C -->|3. Predict & Extract Drivers| D[Insights DB]
-    D -->|4. Trigger Warning| E[Slack / Email Alert]
-    D -->|5. Update Fields| F[CRM Dashboard]
+    A["CRM Data (Salesforce/HubSpot)"] -->|1. Fetch Deals| B("Python ETL Script")
+    B -->|2. Preprocess| C{"WinRate Engine (Decision Tree)"}
+    C -->|3. Predict & Extract Drivers| D["Insights DB"]
+    D -->|4. Trigger Warning| E["Slack / Email Alert"]
+    D -->|5. Update Fields| F["CRM Dashboard"]
+```
 
 2. Data Flow
 
@@ -182,48 +184,48 @@ graph LR
 
 3. Example Alerts & Insights
 
-The "At-Risk" Alert:
-Trigger: Win Probability drops by >15% since last week.
-Message: "⚠️ Deal Risk: dropped to 40% win chance. Reason: Sales cycle exceeds industry avg by 20 days."
+    The "At-Risk" Alert:
+    Trigger: Win Probability drops by >15% since last week.
+    Message: "⚠️ Deal Risk: dropped to 40% win chance. Reason: Sales cycle exceeds industry avg by 20 days."
 
-The "Coaching" Insight:
-Trigger: New deal created in a high-loss segment.
-Message: "ℹ️ Insight: History shows 'Enterprise' deals in 'Europe' have a 20% lower win rate. Suggestion: Involve a Sales Engineer early."
+    The "Coaching" Insight:
+    Trigger: New deal created in a high-loss segment.
+    Message: "ℹ️ Insight: History shows 'Enterprise' deals in 'Europe' have a 20% lower win rate. Suggestion: Involve a Sales Engineer early."
 
-The "Stall" Warning:
-Trigger: No stage movement for 14 days.
-Message: "📉 Stalled: [Globex Deal] has been stagnant. Action: Schedule follow-up or mark Closed-Lost."
+    The "Stall" Warning:
+    Trigger: No stage movement for 14 days.
+    Message: "📉 Stalled: [Globex Deal] has been stagnant. Action: Schedule follow-up or mark Closed-Lost."
 
 4. Execution Frequency
 
-Daily Batch (Recommended): Runs every morning before reps start work.
-Reason : Less resource-intensive than real-time; gives reps a "daily briefing."
+    Daily Batch (Recommended): Runs every morning before reps start work.
+    Reason : Less resource-intensive than real-time; gives reps a "daily briefing."
 
 5. Failure Cases & Limitations
 
-* Data Quality: If CRM fields (like Industry or Region) are left blank, predictions will be inaccurate.
-* Model Drift: If market conditions change (e.g., new competitor), the model needs retraining every month.
-* Cold Start: New sales reps or new products won't have enough historical data for accurate predictions initially.
+    * Data Quality: If CRM fields (like Industry or Region) are left blank, predictions will be inaccurate.
+    * Model Drift: If market conditions change (e.g., new competitor), the model needs retraining every month.
+    * Cold Start: New sales reps or new products won't have enough historical data for accurate predictions initially.
 
 # Part 5 – Reflection
 
 1. What assumptions in your solution are weakest?
 
-* Data Integrity: I assumed the CRM data is accurate. 
-* Independence: The model treats every deal as an isolated event. It ignores external factors like macro-economic shifts, seasonality (e.g., End of Quarter), or marketing campaigns that might spike win rates temporarily.
+    * Data Integrity: I assumed the CRM data is accurate. 
+    * Independence: The model treats every deal as an isolated event. It ignores external factors like macro-economic shifts, seasonality (e.g., End of Quarter), or marketing campaigns that might spike win rates temporarily.
 
 2. What Would Break in Production?
 
-Category Explosion: If the company enters a new market or adds 50 new Industries, the One-Hot Encoding will create too many features, leading to sparse data and overfitting.
-Data Drift: The model is static. If pricing strategies change next month, the historical patterns used to train the tree become obsolete, and predictions will degrade rapidly without retraining.
+    * Category Explosion: If the company enters a new market or adds 50 new Industries, the One-Hot Encoding will create too many features, leading to sparse data and overfitting.
+    * Data Drift: The model is static. If pricing strategies change next month, the historical patterns used to train the tree become obsolete, and predictions will degrade rapidly without retraining.
 
 3. What I Would Build Next (1-Month Roadmap)
 
-Better Features: I would integrate Activity Data (e.g., number of emails exchanged, meetings booked). Behavioral data is often more predictive of a win than static fields like "Industry."
-Explainability Layer: Implement SHAP values. Instead of just saying "Win Probability: 40%," it would say "This is low specifically because the Deal Amount is too high for this Region." This builds trust with sales reps.
+    * Better Features: I would integrate Activity Data (e.g., number of emails exchanged, meetings booked). Behavioral data is often more predictive of a win than static fields like "Industry."
+    * Explainability Layer: Implement SHAP values. Instead of just saying "Win Probability: 40%," it would say "This is low specifically because the Deal Amount is too high for this Region." This builds trust with sales reps.
 
 4. Area of Least Confidence
 
-Imputation Strategy: My current method of filling missing numerical values with the median and categorical values with "Unknown" is a blunt instrument. If data is missing not at random (e.g., reps only skip entering Deal Amount on low-priority deals), this introduces significant bias.
+    * Imputation Strategy: My current method of filling missing numerical values with the median and categorical values with "Unknown" is a blunt instrument. If data is missing not at random (e.g., reps only skip entering Deal Amount on low-priority             deals), this introduces significant bias.
 
 
