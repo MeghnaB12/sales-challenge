@@ -25,16 +25,16 @@ class WinRateDriverEngine:
         data['target'] = (data['outcome_clean'] == 'won').astype(int)
         
         # 4. Handle Missing Values in Numeric Columns
-        # Use existing 'sales_cycle_days' from your CSV
+        # Use existing 'sales_cycle_days' from CSV
         if 'sales_cycle_days' in data.columns:
             data['sales_cycle_days'] = data['sales_cycle_days'].fillna(data['sales_cycle_days'].median())
         else:
-             # Fallback if column is missing (though your screenshot shows it exists)
+             # Fallback if column is missing 
              data['sales_cycle_days'] = (pd.to_datetime(data['closed_date']) - pd.to_datetime(data['created_date'])).dt.days
 
         data['deal_amount'] = data['deal_amount'].fillna(data['deal_amount'].median())
 
-        # 5. Select Features (Based on your Screenshot)
+        # 5. Select Features
         # Note: We exclude 'deal_id', 'rep_id', dates, and 'outcome'
         feature_cols = ['deal_amount', 'industry', 'region', 'product_type', 'lead_source', 'sales_cycle_days']
         
