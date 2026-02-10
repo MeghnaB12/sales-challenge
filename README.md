@@ -152,8 +152,6 @@ Features Used: Deal Amount, Sales Cycle Days, Region, Industry, Lead Source, Pro
 
 # Part 4 – Mini System Design
 
-System Name: SkyGeni Sales Agent 
-
 A lightweight, automated engine that monitors deal health and delivers actionable win/loss insights to sales reps.
 
 1. High-Level Architecture
