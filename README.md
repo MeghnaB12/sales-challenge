@@ -223,6 +223,7 @@ Better Features: I would integrate Activity Data (e.g., number of emails exchang
 Explainability Layer: Implement SHAP values. Instead of just saying "Win Probability: 40%," it would say "This is low specifically because the Deal Amount is too high for this Region." This builds trust with sales reps.
 
 4. Area of Least Confidence
+
 Imputation Strategy: My current method of filling missing numerical values with the median and categorical values with "Unknown" is a blunt instrument. If data is missing not at random (e.g., reps only skip entering Deal Amount on low-priority deals), this introduces significant bias.
 
 
