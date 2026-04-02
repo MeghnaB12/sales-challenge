@@ -1,5 +1,5 @@
 
-# SkyGeni Sales Insight Engine 
+# Sales Insight Engine 
 
 ## Overview
 This project is a lightweight **Sales Insight & Alert System** designed to predict the probability of winning a sales deal based on historical data. It processes raw CRM data, trains a Decision Tree classifier, and extracts the key drivers (features) that influence a "Won" or "Lost" outcome.
