@@ -14,8 +14,8 @@ This project is a lightweight **Sales Insight & Alert System** designed to predi
 ## ⚙️ Setup & Installation
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/MeghnaB12/skygeni-sales-engine.git
-    cd skygeni-sales-engine
+    git clone https://github.com/MeghnaB12/sales-challenge.git
+    cd sales-engine
     ```
 2.  **Create and activate a virtual environment (optional but recommended):**
     ```bash
