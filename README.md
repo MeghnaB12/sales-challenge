@@ -7,7 +7,7 @@ This project is a lightweight **Sales Insight & Alert System** designed to predi
 ## 📂 Project Structure
 * `src/decision_engine.py`: The core logic class (`WinRateDriverEngine`) that handles data cleaning, preprocessing, and model training.
 * `notebooks/analysis.ipynb`: The Jupyter Notebook used for exploratory data analysis (EDA) and running the driver code.
-* `data/skygeni_sales_data.csv`: The dataset used for training and testing.
+* `data/sales_data.csv`: The dataset used for training and testing.
 * `images/`: Generated visualization exports (Win Rate, Segmentation, Loss Analysis).
 * `requirements.txt`: List of Python dependencies.
 
